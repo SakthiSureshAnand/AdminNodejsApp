@@ -1,0 +1,126 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: EmailProjectScreens
+host: localhost/:9090
+basePath: /EmailProjectScreens_42
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /SearchListScreen_Default_Activity/SearchListScreen:
+    put:
+      description: Update SearchListScreen
+      parameters:
+        - name: searchlistscreen
+          in: body
+          description: json object
+          required: true
+          type: string
+          schema:
+            $ref: '#/definitions/SearchListScreen'
+      responses:
+        "200":
+          description: Success
+    get:
+      description: Get all SearchListScreen
+      responses:
+        "200":
+          description: Success
+    post:
+      description: Create SearchListScreen
+      parameters:
+        - name: searchlistscreen
+          in: body
+          description: json object
+          required: true
+          type: string
+          schema:
+            $ref: '#/definitions/SearchListScreen'
+      responses:
+        "201":
+          description: Success
+  /SearchListScreen_Default_Activity/SearchListScreen/{SearchListScreenId}:
+    delete:
+      description: Delete SearchListScreen
+      parameters:
+        - name: SearchListScreenId
+          in: path
+          description: id
+          required: true
+          type: integer
+
+      responses:
+        "204":
+          description: Success
+    get:
+      description: Get SearchListScreen by id
+      parameters:
+        - name: SearchListScreenId
+          in: path
+          description: id
+          required: true
+          type: integer
+
+      responses:
+        "200":
+          description: Success
+  /SearchListScreen_Default_Activity/SearchListScreen/search:
+    get:
+      description: Search SearchListScreen
+      parameters:
+        - name: username
+          in: query
+          description: username
+          required: true
+          type: string
+        - name: user_id
+          in: query
+          description: User_id
+          required: true
+          type: 
+        - name: created_on
+          in: query
+          description: Created_on
+          required: true
+          type: string
+        - name: script_executed_on
+          in: query
+          description: Script_executed_on
+          required: true
+          type: string
+        - name: json_created_on
+          in: query
+          description: Json_created_on
+          required: true
+          type: string
+
+      responses:
+        "200":
+          description: Success
+
+definitions:
+  SearchListScreen:
+    required:
+      - username
+      - user_id
+      - created_on
+      - script_executed_on
+      - json_created_on
+
+    properties:
+      id:
+        type: integer
+      username:
+        type: string
+      user_id:
+        type: 
+      created_on:
+        type: string
+      script_executed_on:
+        type: string
+      json_created_on:
+        type: string
